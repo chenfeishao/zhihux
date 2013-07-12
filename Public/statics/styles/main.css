@@ -1,0 +1,71 @@
+.top-logo{
+background: url("/Public/statics/images/logo.png") no-repeat
+		scroll 0 0 transparent;
+	width: 67px;
+	display: block;
+	text-indent: -1000px;
+}
+#main{margin:20px auto;}
+.user-register{padding:40px;border-right: 1px solid #DDDDDD;}
+.open-login a{width:120px;height:24px;margin: 15px 0;display:block;}
+.sina-weibo-login{background: url("/Public/statics/images/l-sina.png") no-repeat scroll 0 0 transparent;}
+.qq-login{background: url("/Public/statics/images/l-qq.png") no-repeat scroll 0 0 transparent;}
+.verify-code{cursor:pointer;}
+.alert-hidden{display:none;}
+#__showMessage{position:absolute;z-index:99;right:45%;top:68px;}
+#footer{color: #999999;
+    overflow: hidden;
+    position: relative;
+    text-align: center;border-top: 1px solid #CCCCCC;padding:20px 0;}
+
+    /********question list start*********/
+    .q-c-each{
+    	margin: 10px;
+    	border-bottom :solid 1px #DDDDDD;
+    	padding: 5px;
+    }
+    .q-c-each-top{
+    	height:24px;
+    	line-height: 24px;
+    	vertical-align: middle;
+    }
+    .left{
+    	float: left;
+    }
+    .right{
+    	float: right;
+    	text-align: right;
+    }
+    .q-c-each-link{
+    	margin-bottom: 10px;
+    }
+    .q-c-each a{
+    	margin: 0 5px;
+    	display: inline-block;
+    }
+    .q-c-each-content{
+    	
+    }
+    .q-c-each-comment{
+        display: none;
+        margin: 0px 0px 0px 30px;
+        background-color: #eeeeee;
+    }
+    .q-c-each-comment .c{
+        height: 17px;
+    }
+    .q-c-each-comment .o{
+        height: 64px;
+    }
+    .time{
+        color: #999999;
+    }
+    .q-c-each-comment-v{
+        border-top: dashed 1px #cccccc;
+        padding: 8px;
+        color: #555555;
+    }
+    .commentEntities .i{
+        padding: 10px;
+    }
+    /********question list end*********/

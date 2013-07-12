@@ -1,0 +1,185 @@
+*{padding:0}
+body,input,textarea,select,button {
+	color: #222222;
+	font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+	font-size: 13px;
+	line-height: 1.7;
+	margin: 0;
+	padding: 0;
+	word-wrap: break-word;
+}
+
+.body-zh {
+	padding-top: 48px;
+}
+
+.header-top {
+	background: url("/Public/statics/images/header-top-bg.png") repeat-x
+		scroll 0 0 transparent;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	position: fixed;
+	z-index: 20;
+}
+
+.header-top-inner {
+	width: 960px;
+	margin: 0px auto;
+	position: relative;
+	height: inherit;
+}
+
+.header-top-logo {
+	background: url("/Public/statics/images-logo.png") no-repeat
+		scroll 0 0 transparent;
+	width: 67px;
+	height: 45px;
+	display: block;
+	text-indent: -1000px;
+}
+
+.header-top-profile {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	z-index: 20;
+	min-width: 120px;
+}
+
+.profile-setting {
+	background: none repeat scroll 0 0 transparent;
+	border-top: 0px none;
+	box-shadow: none;
+	color: white;
+	height: 44px;
+	line-height: 44px;
+	voerflow: hidden;
+	position: relative;
+	text-indent: 46px;
+	text-overflow: ellipsis;
+	text-decoration: none;
+	white-space: nowarp;
+	text-shadow: 0 1px 1px rgb(0, 0, 0, 0.5);
+	display: block;
+}
+
+.profile-setting .avatar {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+	height: 25px;
+	left: 10px;
+	position: absolute;
+	top: 8px;
+	width: 25px;
+}
+
+.profile-setting .pm-count {
+	left: 29px;
+	visibility: visible;
+	position: absolute;
+	top: 6px;
+	z-index: 12;
+	background: none repeat scroll 0 0 #C3412F;
+	border-radius: 16px 16px 16px 16px;
+	color: #FFFFFF;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: bold;
+	height: 16px;
+	line-height: 16px;
+	padding: 0 5px;
+	text-align: center;
+	text-decoration: none;
+	text-indent: 0;
+}
+
+.header-top-profile:hover .profile-setting {
+	background: url("/Public/statics/images/header-top-nva-bg.png")
+		no-repeat scroll 0 0 transparent;
+}
+
+.header-top-profile .dropdown {
+	left: 0;
+	margin: 0;
+	position: absolute;
+	top: 44px;
+	display: none;
+	padding: 0px;
+}
+
+.dropdown li {
+	list-style: none outside none;
+	margin: 0;
+}
+
+.dropdown li:first-child a {
+	border-top: 0 none;
+}
+
+.dropdown a {
+	background-color: #0672C2;
+	width: 120px;
+	text-align: center;
+	border-top: 1px solid #006BBF;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+	color: white;
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	overflow: hidden;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	white-space: nowrap;
+}
+
+.dropdown a:hover {
+	background-color: #027cc9;
+}
+
+.header-top-profile:hover .dropdown {
+	display: block;
+}
+.cc-clear:before, .cc-clear:after {
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.cc-clear {
+    height: 1%;
+}
+.cc-clear:after {
+    clear: both;
+}
+.cc-clear:before, .cc-clear:after {
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.header-top-nav{
+	float: left;
+    position: relative;
+}
+.header-top-nav-ul{
+	margin: 0 0 0 20px;
+}
+.header-top-nav-ul li{
+	 float: left;
+    list-style: none outside none;
+    margin: 0;
+    position: relative;
+}
+.header-top-nav-ul li a{
+color: #EEEEEE;
+    display: block;
+    font-weight: bold;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    width: 50px;
+}
