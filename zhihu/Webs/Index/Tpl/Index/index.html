@@ -1,0 +1,39 @@
+<include file="public:header"/>
+<load href="__PUBLIC__/statics/javascripts/question.js" />
+<load href="__PUBLIC__/statics/ueditor/editor_config.js" />
+<load href="__PUBLIC__/statics/ueditor/editor_all_min.js" />
+<script type="text/javascript">
+	var addFollowUrl = "{:U('Index/Index/addfollow')}";
+	var addGoodReputationUrl = "{:U('Index/Index/addgoodreputation')}";
+	var addBadReputationUrl = "{:U('Index/Index/addbadreputation')}";
+	var loadCommentUrl = "{:U('Index/Index/loadcomment')}";
+	var addCommentUrl = "{:U('Index/Index/addquestioncomment')}";
+</script>
+<div class="container">
+	<div class="row-fluid">
+		<div class="span9">
+			<div class="q-container">
+				<div class="q-c-search">
+					<form id="qSearchParameter" method="post" action="{:U('Index/Index/qlist')}" >
+						<input type="hidden" name="p" value="{$page}"/>
+						<input type="hidden" name="t" value="{$tag}"/>
+						<input type="hidden" name="n" value="{$number}"/>
+						<input type="hidden" name="w" value="{$word}"/>
+						<input type="hidden" name="o" value="{$order}"/>
+					</form>
+				</div>
+				<div class="q-c-main" id="itemContainer">
+				</div>
+				<div class="q-c-result">
+					<button id="btnLoadingMore" class="btn btn-block " type="button" style="display:none">显示更多</button>
+					<div id="qLoading" class="alert alert-info" style="text-align:center;"><img src="__PUBLIC__/statics/images/ajax-loader.gif"/><strong>正在加载...</strong></div>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			
+		</div>
+	</div>
+</div>
+<include file="public:addAnswer" />
+<include file="public:footer"/>

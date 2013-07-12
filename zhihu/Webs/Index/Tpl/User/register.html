@@ -1,0 +1,58 @@
+<include file="public:header"/>
+<load href="__PUBLIC__/statics/javascripts/jquery.validate.min.js" />
+<load href="__PUBLIC__/statics/javascripts/user.js" />
+    <div class="container-fluid">
+    <div class="span9">
+    <div class="user-register">
+    <form id="zh_userregister" class="form-horizontal" action="{:U('Index/User/register','','')}" method="post">
+    <div class="control-group">
+    <label class="control-label" for="userEmail">邮箱</label>
+    <div class="controls">
+      <input id="userEmail" class="input-large" rel="{:U('Index/User/checkuseremail','','')}" name="userEmail" type="text">
+      <span class="help-inline" for="userEmail"></span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="userName">昵称</label>
+    <div class="controls">
+      <input id="userName" class="input-large" rel="{:U('Index/User/checkusername','','')}" name="userName" type="text">
+      <span class="help-inline" for="userName"></span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="userPass">密码</label>
+    <div class="controls">
+      <input id="userPass" class="input-large" name="userPass" type="password">
+      <span class="help-inline" for="userPass"></span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="userConfirmPass">确认密码</label>
+    <div class="controls">
+      <input id="userConfirmPass" class="input-large" name="userConfirmPass" type="password">
+      <span class="help-inline" for="userPass"></span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label"  rel="{:U('Index/Public/checkverifycode','','')}" for="verifyCode">验证码</label>
+    <div class="controls">
+      <input id="verifyCode" class="input-small" rel="__APP__/Public/checkverifycode/" name="verifyCode" type="text">
+      <img alt="点击图片刷新验证码" class="verify-code" src="__APP__/Public/verify/">
+      <span class="help-inline" for="userPass"></span>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" name="registeruser" class="btn btn-primary" data-loading-text="Loading...">立即注册</button>
+    </div>
+  </div>
+</form>
+    </div>
+    </div>
+    <div class="span3 open-login">
+    	<h4>用以下方式登录</h4>
+    	<a class="sina-weibo-login" href="#"></a>
+    	<a class="qq-login" href="#"></a>
+    </div>
+    </div>
+<include file="public:footer"/>

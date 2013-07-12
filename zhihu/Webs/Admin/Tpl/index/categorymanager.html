@@ -1,0 +1,83 @@
+<include file="public:header"/>
+<h1>管理公共分类</h1>
+<a href="{:U('Admin/Index/index')}">返回首页</a>
+<br/>
+<br/>
+<br/>
+<div id="save-category-container">
+	<form id="save_category" action="{:U('Admin/Index/savecategory')}" method="post">
+		编号： <input type="text" id="number" name="number" />
+	<br/>
+		标题： <input type="text" id="title" name="title" />
+	<br/>
+		上级编号：<input type="text" id="parenterNumber" name="parentNumber" />
+	<br/>
+		描述：<textarea id="description" name="description" ></textarea>
+	<br/>
+		排序：<input type="text" id="sort" name="sort" />
+	<br/>
+		<input id="btn_saveCategory" type="button" value="提交" />
+		<input type="hidden" id="id" name="id" value="" />
+	</form>
+</div>
+<div id="list-category-container">
+	<input type="hidden" id="delete_url" value="{:U('Admin/Index/deletecategory')}" />
+	<table border="1">
+		<tr>
+			<td>id</td>
+			<td>编号</td>
+			<td>标题</td>
+			<td>上级编号</td>
+			<td>描述</td>
+			<td>排序</td>
+			<td>操作</td>
+		</tr>
+		<foreach name="categories" item="c">
+			<tr>
+				<td>{$c.id}</td>
+				<td>{$c.number}</td>
+				<td>{$c.title}</td>
+				<td>{$c.parentNumber}</td>
+				<td>{$c.description}</td>
+				<td>{$c.sort}</td>
+				<td>
+					<a href="javascript:void(0)" ref="{$c.id}" rel="update">更新此项</a>
+					<a href="javascript:void(0)" ref="{$c.id}" rel="delete">删除</a>
+				</td>
+			</tr>
+		</foreach>
+		<tr>
+			<td colspan="7" align="center">
+				{$page}
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var delete_url = $("#delete_url").val();
+		$("#btn_saveCategory").click(function(){
+			var form = $('#save_category');
+			$.post(form.attr('action'),form.serialize(),function(r){
+					alert(r);
+			},'json');
+		});
+		$("#list-category-container a[rel='delete']").click(function(){
+			var id=$(this).attr("ref");
+			$.post(delete_url,{id:id},function(r){
+					alert(r);
+			},'json');
+		});
+		$("#list-category-container a[rel='update']").click(function(){
+			var dataarray = $(this).parent().parent();
+			$("#save_category input[name='id']").val(dataarray.find('td:eq(0)').text());
+			$("#save_category input[name='number']").val(dataarray.find('td:eq(1)').text());
+			$("#save_category input[name='title']").val(dataarray.find('td:eq(2)').text());
+			$("#save_category input[name='parentNumber']").val(dataarray.find('td:eq(3)').text());
+			$("#save_category textarea[name='description']").val(dataarray.find('td:eq(4)').text());
+			$("#save_category input[name='sort']").val(dataarray.find('td:eq(5)').text());
+			
+		});
+	});
+</script>
+<include file="public:footer"/>

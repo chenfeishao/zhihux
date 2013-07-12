@@ -1,0 +1,38 @@
+<foreach name="qList" item="q">
+	<div class="q-c-each">
+		<div class="q-c-each-top">
+			<div class="left"><a href="{:U('Index/Index/qsearch',array('n'=>$q['category'],'c'=>$q['categoryName']))}"><i class="icon-th-list"></i> {$q.categoryName}</a>({$q.questionTypeName})</div>
+			<div class="right"><a href="{:U('Index/User/infocenter',array('id'=>$q['questionUserID']))}"><i class="icon-user"></i> {$q.userName}</a>发布于 <span class="time">{$q.entityUpdateVersion|showFriendlyTime=###}</span></div>
+		</div>
+		<div class="q-c-each-content">
+			{$q.questionContent}
+			<div class="tag">
+				<foreach name="q['tag']" item="t">
+					<a href="{:U('Index/Index/qsearch',array('t'=>$t))}"><i class="icon-tags"></i> {$t}</a>
+				</foreach>
+			</div>
+		</div>
+		<div class="q-c-each-link" vel="{$q.id}">
+			<a href="javascript:void(0)" for="addAnswer"><i class="icon-pencil"></i> 我知道答案(已有<span for="answerCount">{$q.answerCount}</span>人回答)</a>
+			<a href="javascript:void(0)" for="addFollow"><i class="icon-plus-sign"></i> 关注(<span for="followCount">{$q.followCount}</span>)</a>
+			<a href="javascript:void(0)" for="comment"><i class="icon-comment"></i> 评论(<span for="commentCount">{$q.commentCount}</span>)</a>
+			<a href="javascript:void(0)" for="addGoodReputation"><i class="icon-thumbs-up"></i> 赞(<span for="goodReputation">{$q.goodReputation}</span>)</a>
+			<a href="javascript:void(0)" for="addBadReputation"><i class="icon-thumbs-down"></i> 鄙(<span for="badReputation">{$q.badReputation}</span>)</a>
+		</div>
+		<div class="q-c-each-comment">
+			<!-- <foreach name="q['commentList']" item="c">
+				<div class="q-c-each-comment-v">
+					<a for="user" href="{:U('Index/User/infocenter',array('id'=>$c['userId']))}">{$c.userName}</a>
+					{$c.commentContent}
+					<span class="time">{$c.entityUpdateVersion|showFriendlyTime=###}</span><a for="replyComment" rel="{$c.userName}" href="javascript:void(0)">回复</a>
+				</div>
+			</foreach> -->
+			<div class="commentEntities">
+			</div>
+			<div class="q-c-each-comment-v">
+				<textarea for="comment" class="span6 c"></textarea>
+				<input type="button" vel="{$q.id}" class="btn btn-info" value="评论" />
+			</div>
+		</div>
+	</div>
+</foreach>

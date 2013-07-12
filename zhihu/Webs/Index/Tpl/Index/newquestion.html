@@ -1,0 +1,121 @@
+<include file="public:header"/>
+<load href="__PUBLIC__/statics/javascripts/question.js" />
+<load href="__PUBLIC__/statics/ueditor/editor_config.js" />
+<load href="__PUBLIC__/statics/ueditor/editor_all_min.js" />
+<div class="container-fluid">
+    <div class="span9">
+    	<form class="form-horizontal" id="add-question-form" method="post" action="">
+  <fieldset>
+    <legend>发布问题</legend>
+    <present name="user"><else/>
+    <div class="alert alert-info">请先 <strong>注册 / 登录</strong> 后才能发布问题</div>
+    </present>
+    <div class="control-group">
+    <label class="control-label" for="answerType">题目类型</label>
+    <div class="controls">
+      <label class="radio inline"><input type="radio" name="answerType" value="1" checked> 判断题</label>
+      <label class="radio inline"><input type="radio" name="answerType" value="2"> 选择题</label>
+      <label class="radio inline"><input type="radio" name="answerType" value="3"> 填空题</label>
+      <label class="radio inline"><input type="radio" name="answerType" value="4"> 解答题</label>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="category">所属领域</label>
+    <div class="controls">
+      <div class="input-append">
+  <input class="span2" id="categoryName" type="text" value="{$question.categoryName}" name="categoryName"/>
+  <input type="hidden" id="category" value="{$question.category}" name="category"/>
+  <div class="btn-group">
+    <button class="btn dropdown-toggle" data-toggle="dropdown">
+      选择
+      <span class="caret"></span>
+    </button>
+    <ul id="dropdown-choose-category" class="dropdown-menu">
+    	<foreach name="question_categories" item="c">
+        <if condition="!$c['parentNumber']">
+          <li class="nav-header">{$c.title}</li>
+        <else/>
+          <li><a value="{$c.number}" href="javascript:void(0)">{$c.title}</a></li>
+        </if>
+      </foreach>
+      <li class="divider"></li>
+      <li><a value="0" href="{:U('Index/Index/about')}">没有我想选的领域</a></li>
+    </ul>
+  </div>
+</div>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="questionContent">问题内容</label>
+    <div class="controls">
+    	<textarea id="questionContent" name="questionContent">{$question.questionContent}</textarea>
+    	<script type="text/javascript">
+      var editorQuestionContent = new UE.ui.Editor();
+      editorQuestionContent.render("questionContent");
+		</script>
+    </div>
+  </div>
+  <div class="control-group" for="alternativeAnswer">
+    <label class="control-label" for="alternativeAnswer">备选答案</label>
+    <div class="controls">
+      <textarea  rows="3" class="span6" id="alternativeAnswer" name="alternativeAnswer">{$question.alternativeAnswer}</textarea>
+      <span class="help-block">判断题和选择题请提供备选答案，如：是/否、对/错、A.答案1 B.答案2 C.答案3</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="answerContent">答案</label>
+    <div class="controls">
+    	<textarea id="answerContent" name="answerContent">{$question.answerContent}</textarea>
+    	<script type="text/javascript">
+      var editorAnswerContent = new UE.ui.Editor();
+      editorAnswerContent.render("answerContent");
+		</script>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="questionSummary">问题摘要</label>
+    <div class="controls">
+      <textarea rows="3" class="span6" id="questionSummary" name="questionSummary">{$question.questionSummary}</textarea>
+      <span class="help-block">140文字以内，用于推广到微博、微信等平台，可为空</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="questionPoint">考点/提示</label>
+    <div class="controls">
+      <input class="span3" name="questionPoint" value="{$question.questionPoint}" id="questionPoint" type="text">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="tag">标签</label>
+    <div class="controls">
+      <input class="span3" name="tag" value="{$question.tag}" id="tag" type="text">
+      <span class="help-block">快捷定位到您的问题，多个标签请用 空格 隔开</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="answerExplanation">答案详解</label>
+    <div class="controls">
+    	<textarea id="answerExplanation" name="answerExplanation">{$question.answerExplanation}</textarea>
+    	<script type="text/javascript">
+      var editorAnswerExplanation = new UE.ui.Editor();
+      editorAnswerExplanation.render("answerExplanation");
+		</script>
+    </div>
+  </div>
+  <div class="control-group error">
+    <div class="controls">
+      <button type="submit" id="btn_add_question" class="btn btn-large btn-primary">发布</button>
+      <span id="validate-info" class="label label-important" style="display:none"></span>
+    </div>
+  </div>
+  </fieldset>
+</form>
+    </div>
+    <div class="span3">
+
+    </div>
+    </div>
+<script type="text/javascript">
+  _initAddQuestionValidate();
+</script>
+<include file="public:footer"/>
